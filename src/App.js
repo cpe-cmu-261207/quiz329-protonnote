@@ -3,12 +3,13 @@ import { useState, useEffect } from "react";
 
 function App() {
   //add useState for all state variables
-
+  const [tt, settt] = useState([{}])
+  const [inputData, setInputData] = useState({name:"" , gender:"" ,age:"0"});
   //load locationStorage
-  useEffect(() => {
-    const items = localStorage.getItem("items");
-    // ...
-  }, []);
+
+  function add (e){
+
+  }
 
   return (
     <div className="card" style={{ width: 400 }}>
@@ -21,12 +22,13 @@ function App() {
             type="text"
             placeholder="e.q John Smith"
             //update related state based on event
+            value={inputData.name} onChange={(e) => setInputData({ ...inputData, name: e.target.value })}
           ></input>
         </div>
 
         <div className="field">
           <label className="label">Gender</label>
-          <select className="input" type="text" placeholder="Please select ..">
+          <select className="input" type="text" placeholder="Please select .." value={inputData.gender} onChange={(e) => setInputData({ ...inputData, gender: e.target.value })}>
             <option value="" disabled selected hidden>
               -- Select Gender --
             </option>
@@ -37,18 +39,18 @@ function App() {
 
         <div className="field">
           <label className="label">Age</label>
-          <input className="input" type="number" placeholder="e.q 30"></input>
+          <input className="input" type="number" placeholder="e.q 30" value={inputData.age} onChange={(e) => setInputData({ ...inputData, age: e.target.value })}></input>
         </div>
 
-        <button className="button is-primary is-fullwidth">Submit</button>
+        <button className="button is-primary is-fullwidth" onclick={add()}>Submit</button>
 
         <div className="mb-4"></div>
 
         {/* display tables for all persons */}
-        <p className="is-4 title has-text-centered">Person List</p>
-        {/* sample table */}
-        <ItemTable name={"Bob"} gender={"Male"} age={"50"} />
+        <h3 class="title is-3">Person List</h3>
+      {ItemTable = {myTable}}
         <p>Your name and code here</p>
+        <p>Naruson Kanchina 620612153 </p>
       </div>
     </div>
   );
